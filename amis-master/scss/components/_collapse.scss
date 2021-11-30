@@ -1,0 +1,93 @@
+.#{$ns}Collapse {
+  border: var(--Collapse-border);
+  padding: 0;
+  margin-bottom: var(--Form-item-gap);
+
+  &-header {
+    font-size: var(--Collapse-header-fontSize);
+    font-weight: var(--Collapse-header-fontWeight);
+    color: var(--text--loud-color);
+    padding: var(--Collapse-header-padding);
+    margin: 0;
+    border-bottom: var(--borderWidth) solid var(--Collapse-border-color);
+    background: var(--Collapse-header-bg);
+
+    &:hover {
+      background: var(--Collapse-header-onHover-bg);
+    }
+  }
+
+  &-arrow {
+    display: inline-block;
+    width: px2rem(16px);
+    text-align: center;
+    margin-right: px2rem(8px);
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: relative;
+      display: inline-block;
+      width: px2rem(6px);
+      height: px2rem(6px);
+      top: px2rem(-4px);
+      border-color: var(--text-color);
+      border-style: solid;
+      border-width: px2rem(1px) px2rem(1px) 0 0;
+      transform: rotate(135deg);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  &-TplField {
+    display: inline-block;
+  }
+
+  &.is-collapsed &-arrow:before {
+    transform: rotate(45deg);
+    transform-origin: 0% 50%;
+  }
+  &.is-collapsed &-header {
+    border-bottom: var(--Collapse-header-collapsed-borderBottom);
+  }
+
+  &--collapsable &-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  // title 显示在底部的模式
+  &--title-bottom &-header {
+    text-align: center;
+    color: var(--link-color);
+    border-left: none;
+    font-size: var(--fontSizeBase);
+  }
+
+  &--title-bottom &-arrow:before {
+    top: px2rem(2px);
+    transform: rotate(-45deg);
+    transform-origin: 0% 50%;
+  }
+
+  &--title-bottom.is-collapsed &-arrow:before {
+    top: px2rem(-6px);
+    transform: rotate(135deg);
+    transform-origin: 0% 50%;
+  }
+
+  &-contentWrapper {
+    transition: height var(--animation-duration) ease;
+    &.in,
+    &.out {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+  &-content {
+    padding: var(--Collapse-content-padding);
+    color: var(--body-color);
+    font-size: var(--Collapse-content-fontSize);
+    font-weight: var(--Collapse-content-fontWeight);
+  }
+}

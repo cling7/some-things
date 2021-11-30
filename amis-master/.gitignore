@@ -1,0 +1,27 @@
+# Files
+.DS_Store
+.ruby-version
+test.sass
+npm-debug.log
+yarn.lock
+
+# Folders
+.idea/
+.sass-cache
+gh_pages
+_site
+node_modules
+/dist
+/lib
+/sdk
+/public
+/gh-pages
+/.vscode
+/output
+/toolkit/amis-renderer
+/toolkit/output
+/coverage
+package-lock.json
+/schema.json
+/npm
+/mock/cfc/cfc.zip
